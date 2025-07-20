@@ -16,11 +16,30 @@ let package = Package(
     ],
     dependencies: [],
     targets: [
-        .target(name: "MLX"),
-        .target(name: "MLXNN", dependencies: ["MLX"]),
-        .target(name: "MLXOptimizers", dependencies: ["MLX"]),
-        .target(name: "MLXData", dependencies: ["MLX"]),
-        .target(name: "MLXLMCommon", dependencies: ["MLX", "MLXNN", "MLXOptimizers"]),
+        .target(
+            name: "MLX",
+            path: "Sources/mlx"
+        ),
+        .target(
+            name: "MLXNN",
+            dependencies: ["MLX"],
+            path: "Sources/mlx-nn"
+        ),
+        .target(
+            name: "MLXOptimizers",
+            dependencies: ["MLX"],
+            path: "Sources/mlx-optimizers"
+        ),
+        .target(
+            name: "MLXData",
+            dependencies: ["MLX"],
+            path: "Sources/mlx-data"
+        ),
+        .target(
+            name: "MLXLMCommon",
+            dependencies: ["MLX", "MLXNN", "MLXOptimizers"],
+            path: "Sources/MLXLMCommon"
+        )
     ]
 )
 
